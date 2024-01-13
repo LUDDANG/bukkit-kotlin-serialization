@@ -20,8 +20,8 @@ data class MyData(
 class TestPlugin : JavaPlugin() {
     override fun onEnable() {
         val item = ItemStack(Material.STONE).apply {
-            itemMeta = itemMeta.apply {
-                displayName = "display"
+            itemMeta = itemMeta?.apply {
+                setDisplayName("display")
                 lore = listOf("a", "b")
             }
         }
