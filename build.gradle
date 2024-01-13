@@ -1,7 +1,7 @@
 plugins {
-    id 'org.jetbrains.kotlin.jvm' version '1.8.21'
+    id 'org.jetbrains.kotlin.jvm' version '1.9.21'
     id 'kr.entree.spigradle' version '2.4.3'
-    id 'org.jetbrains.kotlin.plugin.serialization' version '1.8.21'
+    id 'org.jetbrains.kotlin.plugin.serialization' version '1.9.21'
     id 'com.github.johnrengelman.shadow' version '8.1.1'
     id 'maven-publish'
 }
@@ -14,10 +14,14 @@ repositories {
 }
 
 dependencies {
-    compileOnly spigot('1.12.2')
-    implementation 'org.jetbrains.kotlinx:kotlinx-serialization-json:1.5.1'
-    testImplementation 'org.jetbrains.kotlinx:kotlinx-serialization-json:1.5.1'
+    compileOnly spigot('1.16.5')
+    implementation 'org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.0'
+    testImplementation 'org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.0'
     testImplementation 'org.jetbrains.kotlin:kotlin-test'
+}
+
+java {
+    withSourcesJar()
 }
 
 test {
@@ -25,16 +29,16 @@ test {
 }
 
 compileKotlin {
-    kotlinOptions.jvmTarget = '1.8'
+    kotlinOptions.jvmTarget = '11'
 }
 
 compileTestKotlin {
-    kotlinOptions.jvmTarget = '1.8'
+    kotlinOptions.jvmTarget = '11'
 }
 
 spigot {
     debug {
-        buildVersion '1.12.2'
+        buildVersion '1.16.5'
     }
 }
 
